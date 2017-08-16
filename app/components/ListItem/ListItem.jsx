@@ -39,7 +39,7 @@ ListItem.propTypes = {
   id: PropTypes.string,
   thumbnail: PropTypes.string,
   title: PropTypes.string,
-  price: PropTypes.string,
+  price: PropTypes.number,
   location: PropTypes.string,
   freeShipping: PropTypes.bool,
 };

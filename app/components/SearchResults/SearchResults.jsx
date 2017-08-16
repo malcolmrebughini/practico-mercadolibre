@@ -6,7 +6,10 @@ import styles from './style.scss';
 
 class SearchResults extends React.Component {
   componentWillMount = () => {
-    if (this.props.items.length === 0) this.props.search(this.props.q);
+    if (this.props.items.length === 0) {
+      this.props.search(this.props.q);
+      this.props.updateInput(this.props.q);
+    }
   }
 
   componentWillReceiveProps = (nextProps) => {
