@@ -14,8 +14,8 @@ require('css-modules-require-hook')({
 
 require('asset-require-hook')({
   extensions: ['png'],
-  publicPath: '/client/dist/',
-  name: '[name].[ext]'
+  publicPath: '/assets/',
+  name: '[hash].[ext]'
 });
 
 require('babel-register');

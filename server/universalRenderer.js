@@ -20,12 +20,14 @@ function universalRendering(req, res) {
   const context = {};
   const app = (
     <Provider store={store}>
-      <StaticRouter
-        location={req.url}
-        context={context}
-      >
-        <App />
-      </StaticRouter>
+      <div>
+        <StaticRouter
+          location={req.url}
+          context={context}
+        >
+          <App />
+        </StaticRouter>
+      </div>
     </Provider>
   );
 
