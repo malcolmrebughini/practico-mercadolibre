@@ -7,7 +7,7 @@ function mapStateToProps(state, ownProps) {
   return {
     items: state.search.items,
     isLoading: state.search.isLoading,
-    q: ownProps.location.search.replace('?q=', '')
+    q: ownProps.location.search.replace('?q=', ''),
   };
 }
 

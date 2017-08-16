@@ -5,12 +5,12 @@ const initialState = {
 };
 
 function reducer(state = initialState, action) {
-  switch(action.type) {
+  switch (action.type) {
     case UPDATE_SEARCH_INPUT:
       return Object.assign({}, state, { inputValue: action.value });
     default:
       return state;
-  };
+  }
 }
 
 

@@ -34,4 +34,4 @@ export default function* rootSaga() {
     yield takeLatest(SEARCH, search),
     yield takeLatest(GET_ITEM, getItem),
   ]);
-};
+}

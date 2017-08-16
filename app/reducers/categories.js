@@ -8,7 +8,7 @@ import {
 const initialState = [];
 
 function reducer(state = initialState, action) {
-  switch(action.type) {
+  switch (action.type) {
     case GET_ITEM:
     case SEARCH:
       return [];
@@ -17,7 +17,7 @@ function reducer(state = initialState, action) {
       return [].concat(action.categories);
     default:
       return state;
-  };
+  }
 }
 
 

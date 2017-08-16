@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import freeShipping from './assets/ic_shipping.png';
 import styles from './style.scss';
@@ -13,12 +14,15 @@ function ListItem(props) {
     <li className={styles.item}>
       <Link title={props.title} to={linkTo}>
         <div className={styles.thumbnail}>
-          <img src={props.thumbnail} />
+          <img src={props.thumbnail} alt={props.title} />
         </div>
         <div className={styles.description}>
           <span className={styles.price}>
             $ {props.price}
-            { props.freeShipping && <img className={styles.freeShipping} src={freeShipping} /> }
+            {
+              props.freeShipping &&
+                <img alt="envio gratis" className={styles.freeShipping} src={freeShipping} />
+            }
           </span>
           <span className={styles.title}>{props.title}</span>
         </div>
@@ -29,6 +33,16 @@ function ListItem(props) {
     </li>
   );
 }
+
+
+ListItem.propTypes = {
+  id: PropTypes.string,
+  thumbnail: PropTypes.string,
+  title: PropTypes.string,
+  price: PropTypes.string,
+  location: PropTypes.string,
+  freeShipping: PropTypes.bool,
+};
 
 
 export default ListItem;

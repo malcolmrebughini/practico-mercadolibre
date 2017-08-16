@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './style.scss';
 
 
 class ItemDetail extends React.Component {
   componentWillMount = () => {
-    if(Object.keys(this.props.data).length === 0) return this.props.getItem(this.props.itemId);
+    if (Object.keys(this.props.data).length === 0) this.props.getItem(this.props.itemId);
   }
 
   render = () => {
@@ -16,7 +17,7 @@ class ItemDetail extends React.Component {
           <div className={styles.someContainer}>
             <div className={styles.innerContainer}>
               <div className={styles.pic}>
-                <img src={data.pictures[0].url} />
+                <img src={data.pictures[0].url} alt={data.title} />
               </div>
               <div className={styles.infoContainer}>
                 <div className={styles.condition}>
@@ -33,10 +34,25 @@ class ItemDetail extends React.Component {
             </div>
           </div>
         </div>
-      : null
+        : null
     );
   };
 }
+
+
+ItemDetail.propTypes = {
+  isLoading: PropTypes.bool,
+  data: PropTypes.shape({
+    pictures: PropTypes.array,
+    price: PropTypes.number,
+    description: PropTypes.string,
+    condition: PropTypes.string,
+    sold_quantity: PropTypes.number,
+    tite: PropTypes.string,
+  }),
+  getItem: PropTypes.func,
+  itemId: PropTypes.string,
+};
 
 
 ItemDetail.defaultProps = {

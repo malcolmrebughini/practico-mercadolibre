@@ -5,7 +5,7 @@ const initialState = {
 };
 
 function reducer(state = initialState, action) {
-  switch(action.type) {
+  switch (action.type) {
     case GET_ITEM:
       return Object.assign({}, state, { isLoading: true });
     case GET_ITEM_SUCCESS:
@@ -14,7 +14,7 @@ function reducer(state = initialState, action) {
       return Object.assign({}, state, { isLoading: false, hasError: true, error: action.error });
     default:
       return state;
-  };
+  }
 }
 
 

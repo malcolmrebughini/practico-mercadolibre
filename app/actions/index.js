@@ -1,9 +1,9 @@
-import { routerMiddleware, push } from 'react-router-redux';
+import { push } from 'react-router-redux';
 import { SEARCH, UPDATE_SEARCH_INPUT, GET_ITEM } from '../constants';
 
 
 function redirectToResultsView(value) {
-  if (!value) return;
+  if (!value) return {};
   return push({ pathname: '/items', search: `?q=${value}` });
 }
 
@@ -25,4 +25,4 @@ export default {
   search,
   updateInput,
   getItem,
-}
+};

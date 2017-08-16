@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import createHistory from 'history/createBrowserHistory';
 import createMemoryHistory from 'history/createMemoryHistory';
-import { routerReducer, routerMiddleware, push } from 'react-router-redux';
+import { routerReducer, routerMiddleware } from 'react-router-redux';
 import createSagaMiddleware, { END } from 'redux-saga';
 import rootSaga from './rootSaga';
 import searchReducer from './reducers/search';
@@ -23,7 +23,8 @@ function setupStore(preloadedState) {
 
   const sagaMiddleware = createSagaMiddleware();
 
-  const composeEnhancers = process.env.BROWSER && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
+  const composeEnhancers = process.env.BROWSER && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
 
   const store = createStore(
     reducers,
@@ -32,7 +33,7 @@ function setupStore(preloadedState) {
       applyMiddleware(
         routerMiddleware(history),
         sagaMiddleware,
-      )
+      ),
     ),
   );
 
@@ -45,4 +46,4 @@ function setupStore(preloadedState) {
 }
 
 export default setupStore;
-export { history }
+export { history };
