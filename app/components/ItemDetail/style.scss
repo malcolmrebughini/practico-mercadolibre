@@ -1,0 +1,96 @@
+@import 'app/styles/vars';
+
+
+.container {
+  background-color: #fff;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    max-width: $body-width;
+    border-radius: 4px;
+  }
+
+  .pic {
+    & > img {
+      width: 100%;
+      height: auto;
+    }
+
+    @media (min-width: 768px) {
+      width: 680px;
+    }
+  }
+
+  .condition {
+    margin-top: 32px;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: capitalize;
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 16px;
+  }
+
+  .infoContainer {
+    padding: 0 32px;
+
+    @media (min-width: 768px) {
+      padding: 0;
+      flex-shrink: 5;
+      padding-left: 32px;
+    }
+  }
+
+  .infoContainer2 {
+    padding: 40px 32px;
+
+    @media (min-width: 768px) {
+      padding: 0;
+      margin-top: 40px;
+    }
+  }
+
+  .price {
+    font-size: 46px;
+    margin: 32px 0;
+  }
+
+  .buyButton {
+    width: 100%;
+    background: #3483fa;
+    border: 1px solid #3483fa;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 4px;
+    padding: 12px;
+  }
+
+  .descriptionTitle {
+    font-size: 28px;
+  }
+
+  .description {
+    color: #666;
+    margin-top: 32px;
+    font-size: 16px;
+
+    @media (min-width: 768px) {
+      width: 65%;
+    }
+  }
+
+  .innerContainer {
+    @media (min-width: 768px) {
+      display: flex;
+    }
+  }
+
+  .someContainer {
+    @media (min-width: 768px) {
+      padding: 32px;
+    }
+  }
+}
