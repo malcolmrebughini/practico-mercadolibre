@@ -5,7 +5,11 @@ import styles from './style.scss';
 
 class SearchResults extends React.Component {
   componentWillMount = () => {
-    this.props.search(this.props.q);
+    if(this.props.items.length === 0) this.props.search(this.props.q);
+  }
+
+  componentWillReceiveProps = nextProps => {
+    if (nextProps.q !== this.props.q) return this.props.search(nextProps.q);
   }
 
   render = () => {
@@ -31,6 +35,11 @@ class SearchResults extends React.Component {
     );
   };
 }
+
+
+SearchResults.defaultProps = {
+  items: [],
+};
 
 
 export default SearchResults;

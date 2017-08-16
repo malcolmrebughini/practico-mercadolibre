@@ -4,7 +4,7 @@ import styles from './style.scss';
 
 class ItemDetail extends React.Component {
   componentWillMount = () => {
-    this.props.getItem(this.props.itemId);
+    if(Object.keys(this.props.data).length === 0) return this.props.getItem(this.props.itemId);
   }
 
   render = () => {
@@ -40,7 +40,7 @@ class ItemDetail extends React.Component {
 
 
 ItemDetail.defaultProps = {
-  data: { pictures: [] },
+  data: {},
 };
 
 
