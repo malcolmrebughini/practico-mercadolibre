@@ -6,7 +6,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpack = require('webpack');
 const config = require('./environment');
-const webpackConfig = require('../../config/webpack.config.development');
+const webpackConfig = require('../../config/webpack.config.dev');
 const author = require('../utils/author');
 
 
