@@ -1,6 +1,7 @@
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const { StaticRouter, matchPath } = require('react-router');
+const Helmet = require('react-helmet').Helmet;
 const App = require('../app').default;
 const { Provider } = require('react-redux');
 const setupStore = require('../app/store').default;
@@ -35,6 +36,7 @@ function universalRendering(req, res) {
 
   runTasks.done.then(() => {
     const html = ReactDOMServer.renderToString(app);
+    const helmet = Helmet.renderStatic();
 
     const assetsByChunkName = res.locals.webpackStats.toJson().assetsByChunkName;
     const normalizedAssets = normalizeAssets(assetsByChunkName);
@@ -43,7 +45,8 @@ function universalRendering(req, res) {
     return res.send(`
       <html>
         <head>
-          <title>Mercadolibre</title>
+          ${helmet.title.toString()}
+          ${helmet.meta.toString()}
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <base href="/">
           <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">

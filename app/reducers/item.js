@@ -1,4 +1,4 @@
-import { GET_ITEM, GET_ITEM_SUCCESS, GET_ITEM_ERROR } from '../constants';
+import { GET_ITEM, GET_ITEM_SUCCESS, GET_ITEM_ERROR, CLEAR_DATA } from '../constants';
 
 const initialState = {
   isLoading: true,
@@ -6,6 +6,8 @@ const initialState = {
 
 function reducer(state = initialState, action) {
   switch (action.type) {
+    case CLEAR_DATA:
+      return initialState;
     case GET_ITEM:
       return Object.assign({}, state, { isLoading: true });
     case GET_ITEM_SUCCESS:

@@ -1,5 +1,4 @@
-import { LOCATION_CHANGE } from 'react-router-redux';
-import { SEARCH, SEARCH_SUCCESS, SEARCH_ERROR } from '../constants';
+import { SEARCH, SEARCH_SUCCESS, SEARCH_ERROR, CLEAR_DATA } from '../constants';
 
 const initialState = {
   isLoading: true,
@@ -7,7 +6,7 @@ const initialState = {
 
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case LOCATION_CHANGE:
+    case CLEAR_DATA:
       return initialState;
     case SEARCH:
       return Object.assign({}, state, { isLoading: true });

@@ -1,5 +1,5 @@
 import { push } from 'react-router-redux';
-import { SEARCH, UPDATE_SEARCH_INPUT, GET_ITEM } from '../constants';
+import { SEARCH, UPDATE_SEARCH_INPUT, GET_ITEM, CLEAR_DATA } from '../constants';
 
 
 function redirectToResultsView(value) {
@@ -19,10 +19,15 @@ function getItem(itemId) {
   return { type: GET_ITEM, itemId };
 }
 
+function clearData() {
+  return { type: CLEAR_DATA };
+}
+
 
 export default {
   redirectToResultsView,
   search,
   updateInput,
   getItem,
+  clearData,
 };
