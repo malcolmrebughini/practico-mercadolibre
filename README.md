@@ -39,3 +39,4 @@
 - [ ] Code splitting
 - [ ] Unit tests
 - [ ] Run with Docker
+- [ ] Fix HMR
