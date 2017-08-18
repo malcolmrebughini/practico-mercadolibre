@@ -36,6 +36,6 @@
 
 
 #### Pending
-- [] Code splitting
-- [] Unit tests
-- [] Run with Docker
+- [ ] Code splitting
+- [ ] Unit tests
+- [ ] Run with Docker
