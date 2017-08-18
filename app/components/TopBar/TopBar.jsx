@@ -23,8 +23,9 @@ class TopBar extends React.Component {
           <img src={mlLogo} alt="mercadolibre" />
         </Link>
         <div className={styles.search}>
-          <form onSubmit={this.onFormSubmit}>
+          <form onSubmit={this.onFormSubmit} action="/items" method="GET">
             <input
+              name="q"
               className={styles.searchInput}
               value={this.props.inputValue}
               onChange={this.onInputChange}
