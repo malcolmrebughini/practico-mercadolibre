@@ -1,12 +1,10 @@
 const path = require('path');
-const _ = require('lodash');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
-const vendor = require('./webpack.vendors.js');
+const vendor = require('./webpack.vendors');
 const commonConfig = require('./webpack.config.common');
-const PRODUCTION = process.env.NODE_ENV === 'production';
+
 
 const prodConfig = {
   devtool: 'source-map',
@@ -29,7 +27,7 @@ const prodConfig = {
   },
 };
 
-const config = _.merge(commonConfig, prodConfig);
+const config = Object.assign({}, commonConfig, prodConfig);
 
 config.module.rules = config.module.rules.concat([
   {
@@ -47,29 +45,6 @@ config.module.rules = config.module.rules.concat([
       path.join(__dirname, '../client'),
       path.join(__dirname, '../app'),
     ],
-  },
-  {
-    test: /\.css$/,
-    use: [
-      { loader: 'style-loader' },
-      { loader: 'css-loader' },
-    ],
-    include: /node_modules/,
-  },
-  {
-    test: /\.css$/,
-    use: [
-      { loader: 'style-loader' },
-      {
-        loader: 'css-loader',
-        options: {
-          modules: true,
-          importLoaders: true,
-          localIdentName: '[name]__[local]___[hash:base64:5]',
-        }
-      },
-    ],
-    exclude: /node_modules/,
   },
   {
     test: /\.scss$/,
@@ -98,7 +73,6 @@ config.plugins = config.plugins.concat([
   new webpack.DefinePlugin({
     'process.env.BROWSER': true,
   }),
-  new ExtractTextPlugin({ filename: 'react/css/styles.css', allChunks: true }),
   new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' }),
 ]);
 

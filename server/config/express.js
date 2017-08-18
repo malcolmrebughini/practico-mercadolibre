@@ -6,11 +6,10 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpack = require('webpack');
 const config = require('./environment');
-const webpackConfig = require('../../config/webpack.config.dev');
 const author = require('../utils/author');
 
 
-const compiler = webpack(webpackConfig);
+const compiler = webpack(config.webpackConfig);
 
 module.exports = app => {
   // Parse the bodies of ALL incoming requests,
@@ -24,7 +23,7 @@ module.exports = app => {
   app.use(morgan('dev'));
 
   app.use(webpackDevMiddleware(compiler, {
-    publicPath: webpackConfig.output.publicPath,
+    publicPath: config.webpackConfig.output.publicPath,
     serverSideRender: true,
     stats: {
       colors: true,

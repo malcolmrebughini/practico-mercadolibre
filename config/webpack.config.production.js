@@ -1,5 +1,4 @@
 const path = require('path');
-const _ = require('lodash');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -27,7 +26,7 @@ const prodConfig = {
   },
 };
 
-const config = _.merge(commonConfig, prodConfig);
+const config = Object.assign({}, commonConfig, prodConfig);
 
 config.module.rules = config.module.rules.concat([
   {
@@ -42,29 +41,6 @@ config.module.rules = config.module.rules.concat([
       path.join(__dirname, '../client'),
       path.join(__dirname, '../app'),
     ],
-  },
-  {
-    test: /\.css$/,
-    use: [
-      { loader: 'style-loader' },
-      { loader: 'css-loader' },
-    ],
-    include: /node_modules/,
-  },
-  {
-    test: /\.css$/,
-    use: [
-      { loader: 'style-loader' },
-      {
-        loader: 'css-loader',
-        options: {
-          modules: true,
-          importLoaders: true,
-          localIdentName: '[name]__[local]___[hash:base64:5]',
-        }
-      },
-    ],
-    exclude: /node_modules/,
   },
   {
     test: /\.scss$/,
@@ -93,19 +69,13 @@ config.module.rules = config.module.rules.concat([
 ]);
 
 config.plugins = config.plugins.concat([
-  // new HtmlWebpackPlugin({
-  //   template: 'client/index.ejs',
-  //   title: 'MercadoLibre',
-  //   inject: 'body',
-  //   filename: 'index.html',
-  // }),
   new CleanWebpackPlugin(['./www'], {
     root: path.join(__dirname, '../'),
   }),
   new webpack.DefinePlugin({
     PRODUCTION,
     'process.env.BROWSER': true,
-    NODE_ENV: JSON.stringify('production'),
+    'process.env.NODE_ENV': JSON.stringify('production'),
   }),
   new webpack.optimize.UglifyJsPlugin({
     minimize: true,
