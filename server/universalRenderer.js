@@ -16,6 +16,11 @@ function normalizeAssets(assets) {
       ) : [];
 }
 
+function deferredScriptTags(scripts) {
+  if (scripts.length === 0) return '';
+  return `<script>window.addEventListener('load',function(){var a='${scripts}';'null'==a||'undefined'==a||(a=a.split(','),a.forEach(function(b){var d=document.createElement('script');d.src=b,d.async=!1,d.defer=!0,document.head.appendChild(d)}))});</script>`
+}
+
 function universalRendering(req, res) {
   const store = setupStore();
   const context = {};
@@ -42,6 +47,17 @@ function universalRendering(req, res) {
     const normalizedAssets = normalizeAssets(assetsByChunkName);
     const preloadedState = store.getState();
 
+    const css = normalizedAssets
+      .filter(path => path && path.endsWith('.css'))
+      .map(path => `<link rel="stylesheet" href="${path}" />`)
+      .join('\n');
+
+    const scripts = deferredScriptTags(
+      normalizedAssets
+        .reverse()
+        .filter(path => path && path.endsWith('.js'))
+    )
+
     return res.send(`
       <html>
         <head>
@@ -50,12 +66,7 @@ function universalRendering(req, res) {
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <base href="/">
           <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
-          ${
-            normalizedAssets
-              .filter(path => path && path.endsWith('.css'))
-              .map(path => `<link rel="stylesheet" href="${path}" />`)
-              .join('\n')
-          }
+          ${css}
         </head>
         <body>
           <div id="appContent">${html}</div>
@@ -64,19 +75,12 @@ function universalRendering(req, res) {
             // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations
             window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
           </script>
-          ${
-            normalizedAssets
-            .reverse()
-            .filter(path => path && path.endsWith('.js'))
-            .map(path => `<script src="${path}"></script>`)
-            .join('\n')
-          }
+          ${scripts}
         </body>
       </html>
     `);
   })
   .catch(err => {
-    console.log(err);
     res.status(500).send(err);
   });
 
