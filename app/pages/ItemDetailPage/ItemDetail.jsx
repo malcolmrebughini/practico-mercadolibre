@@ -11,7 +11,7 @@ class ItemDetailPage extends React.Component {
     if (Object.keys(this.props.data).length === 0) this.props.getItem(this.props.itemId);
   }
 
-  componentWillUnount = () => {
+  componentWillUnmount = () => {
     this.props.clearData();
   }
 
