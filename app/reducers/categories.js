@@ -11,10 +11,10 @@ function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_ITEM:
     case SEARCH:
-      return [];
+      return initialState;
     case SEARCH_SUCCESS:
     case GET_ITEM_SUCCESS:
-      return [].concat(action.categories);
+      return action.categories;
     default:
       return state;
   }
