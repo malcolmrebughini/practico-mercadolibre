@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumbs should render correctly 1`] = `
+<div
+  className="container"
+>
+  <span
+    className="breadCrumb"
+  >
+    this &gt; 
+  </span>
+  <span
+    className="breadCrumb"
+  >
+    are &gt; 
+  </span>
+  <span
+    className="breadCrumb"
+  >
+    some &gt; 
+  </span>
+  <span
+    className="breadCrumb"
+  >
+    breadcrumbs &gt; 
+  </span>
+  <span
+    className="breadCrumb"
+  >
+    mydude
+  </span>
+</div>
+`;
