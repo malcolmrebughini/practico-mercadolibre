@@ -1,5 +1,6 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import ItemDetail from './ItemDetail';
 
 
@@ -14,10 +15,10 @@ describe('ItemDetail', () => {
       description: { plain_text: 'This is some description' },
     };
 
-    const tree = renderer.create(
+    const wrapper = shallow(
       <ItemDetail data={itemData} />
-    ).toJSON();
+    );
 
-    expect(tree).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 });

@@ -1,5 +1,5 @@
 {
-  "testRegex": ".*.spec.js",
+  "testRegex": ".*.spec.js$",
   "testEnvironment": "jsdom",
   "moduleNameMapper": {
     "\\.(jpg|jpeg|png|gif|svg)$": "<rootDir>/../config/jest.mock.js",
