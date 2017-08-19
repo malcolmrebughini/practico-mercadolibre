@@ -17,8 +17,10 @@
     ```
     yarn run serve
     ```
-    By default server is set to development mode, set the environment variable
-    `NODE_ENV` to `production` before running the command
+    serve runs the app in development mode, to run production mode use:
+    ```
+    yarn run serve:prod
+    ```
 
 - Building just the client
     ```
@@ -34,9 +36,18 @@
     yarn run lint
     ```
 
+- Tests
+    ```
+    yarn test
+    ```
+    or
+    ```
+    yarn run test:watch
+    ```
+
 
 #### Pending
 - [ ] Code splitting
-- [ ] Unit tests
+- [X] Unit tests
 - [ ] Run with Docker
 - [ ] Fix HMR

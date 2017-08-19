@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest --config ./jest.config.json",
-    "test:watch": "jest --config ./jest.config.json --watch",
+    "test:watch": "npm run test -- --watch",
     "serve": "NODE_ENV=development nodemon server/index.js",
     "serve:prod": "NODE_ENV=production nodemon server/index.js",
     "build": "webpack --progress --colors --config ./config/webpack.config.production.js",
