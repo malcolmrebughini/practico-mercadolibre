@@ -1,3 +1,4 @@
+const fs = require('fs');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const { StaticRouter, matchPath } = require('react-router');
@@ -7,14 +8,6 @@ const { Provider } = require('react-redux');
 const setupStore = require('../app/store').default;
 const rootSaga = require('../app/rootSaga').default;
 
-
-function normalizeAssets(assets) {
-  return assets ?
-    Object.keys(assets)
-      .reduce((arr, key) =>
-        Array.isArray(assets[key]) ? arr.concat(assets[key]) : arr.concat([assets[key]]), []
-      ) : [];
-}
 
 function deferredScriptTags(scripts) {
   if (scripts.length === 0) return '';
@@ -42,9 +35,7 @@ function universalRendering(req, res) {
   runTasks.done.then(() => {
     const html = ReactDOMServer.renderToString(app);
     const helmet = Helmet.renderStatic();
-
-    const assetsByChunkName = res.locals.webpackStats.toJson().assetsByChunkName;
-    const normalizedAssets = normalizeAssets(assetsByChunkName);
+    const normalizedAssets = res.locals.normalizedAssets;
     const preloadedState = store.getState();
 
     const css = normalizedAssets

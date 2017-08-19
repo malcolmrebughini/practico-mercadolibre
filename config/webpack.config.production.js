@@ -1,13 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const vendor = require('./webpack.vendors.js');
 const commonConfig = require('./webpack.config.common');
-
-const PRODUCTION = process.env.NODE_ENV === 'production';
 
 const prodConfig = {
   entry: {
@@ -69,11 +66,7 @@ config.module.rules = config.module.rules.concat([
 ]);
 
 config.plugins = config.plugins.concat([
-  new CleanWebpackPlugin(['./www'], {
-    root: path.join(__dirname, '../'),
-  }),
   new webpack.DefinePlugin({
-    PRODUCTION,
     'process.env.BROWSER': true,
     'process.env.NODE_ENV': JSON.stringify('production'),
   }),
@@ -83,7 +76,7 @@ config.plugins = config.plugins.concat([
       warnings: false,
     },
   }),
-  new ExtractTextPlugin({ filename: 'styles.css', allChunks: true }),
+  new ExtractTextPlugin({ filename: 'styles.[name].[contenthash].css', allChunks: true }),
   new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' }),
 ]);
 

@@ -9,8 +9,8 @@
     "test": "jest --config ./jest.config.json",
     "test:watch": "npm run test -- --watch",
     "serve": "NODE_ENV=development nodemon server/index.js",
-    "serve:prod": "NODE_ENV=production nodemon server/index.js",
-    "build": "webpack --progress --colors --config ./config/webpack.config.production.js",
+    "serve:prod": "npm run build && NODE_ENV=production nodemon server/index.js",
+    "build": "rm -rf www && NODE_ENV=production webpack --progress --json --colors --config ./config/webpack.config.production.js > stats.json && mv stats.json www/stats.json",
     "lint": "eslint app --ext .js,.jsx --color --config ./.eslintrc"
   },
   "dependencies": {
@@ -41,7 +41,6 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "chai": "^4.1.1",
-    "clean-webpack-plugin": "^0.1.16",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
     "css-modules-require-hook": "^4.0.6",

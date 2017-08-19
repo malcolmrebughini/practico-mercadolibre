@@ -9,4 +9,5 @@ module.exports = [
   'react-router-dom',
   'react-router-redux',
   'redux-saga',
+  'react-helmet',
 ];

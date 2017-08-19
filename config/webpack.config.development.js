@@ -1,7 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const vendor = require('./webpack.vendors');
 const commonConfig = require('./webpack.config.common');
 
@@ -73,7 +71,6 @@ config.plugins = config.plugins.concat([
   new webpack.DefinePlugin({
     'process.env.BROWSER': true,
   }),
-  new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' }),
 ]);
 
 module.exports = config;
