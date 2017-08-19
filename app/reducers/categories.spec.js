@@ -1,3 +1,5 @@
+/* eslint-env jasmine */
+
 import {
   GET_ITEM,
   GET_ITEM_SUCCESS,

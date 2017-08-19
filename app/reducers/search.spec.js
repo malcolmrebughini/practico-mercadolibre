@@ -1,3 +1,5 @@
+/* eslint-env jasmine */
+
 import { SEARCH, SEARCH_SUCCESS, SEARCH_ERROR, CLEAR_DATA } from '../constants';
 import searchReducer from './search';
 

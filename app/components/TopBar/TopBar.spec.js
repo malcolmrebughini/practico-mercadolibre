@@ -1,3 +1,6 @@
+/* eslint-env jasmine */
+/* eslint react/jsx-filename-extension: 0 */
+
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
@@ -14,7 +17,7 @@ describe('TopBar', () => {
         updateInput={mockCallbackUpdate}
         redirectToResultsView={mockCallbackRedirect}
         inputValue={inputValue}
-      />
+      />,
     );
 
     expect(toJson(wrapper)).toMatchSnapshot();
@@ -35,7 +38,7 @@ describe('TopBar', () => {
       <TopBar
         inputValue="mala fama"
         redirectToResultsView={mockCallback}
-      />
+      />,
     );
     wrapper.find('form').simulate('submit', { preventDefault: jest.fn() });
     const calls = mockCallback.mock.calls;

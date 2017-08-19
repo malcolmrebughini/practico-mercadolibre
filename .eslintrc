@@ -16,7 +16,8 @@
     "window": true,
     "document": true,
     "alert": true,
-    "XMLHttpRequest": true
+    "XMLHttpRequest": true,
+    "jest": true
 },
   "rules": {
     "curly": ["error", "multi-line"],

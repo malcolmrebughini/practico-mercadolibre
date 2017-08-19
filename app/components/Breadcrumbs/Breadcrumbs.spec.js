@@ -1,3 +1,6 @@
+/* eslint-env jasmine */
+/* eslint react/jsx-filename-extension: 0 */
+
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
@@ -9,16 +12,15 @@ const testKeywordsList = ['this', 'are', 'some', 'breadcrumbs', 'mydude'];
 describe('Breadcrumbs', () => {
   it('should render correctly', () => {
     const wrapper = shallow(
-      <Breadcrumbs list={testKeywordsList} />
+      <Breadcrumbs list={testKeywordsList} />,
     );
 
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render a list of strings as breadcrumbs', () => {
-
     const wrapper = shallow(
-      <Breadcrumbs list={testKeywordsList} />
+      <Breadcrumbs list={testKeywordsList} />,
     );
 
     const breadcrumbs = wrapper.find(`.${styles.breadCrumb}`);

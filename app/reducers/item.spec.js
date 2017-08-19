@@ -1,3 +1,5 @@
+/* eslint-env jasmine */
+
 import { GET_ITEM, GET_ITEM_SUCCESS, GET_ITEM_ERROR, CLEAR_DATA } from '../constants';
 import itemReducer from './item';
 

@@ -1,3 +1,5 @@
+/* eslint-env jasmine */
+
 import { UPDATE_SEARCH_INPUT } from '../constants';
 import topbarReducer from './topbar';
 
