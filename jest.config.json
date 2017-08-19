@@ -1,0 +1,15 @@
+{
+  "testRegex": ".*.spec.js",
+  "testEnvironment": "jsdom",
+  "moduleNameMapper": {
+    "\\.(jpg|jpeg|png|gif|svg)$": "<rootDir>/../config/jest.mock.js",
+    "\\.(css|less|scss)$": "identity-obj-proxy"
+  },
+  "rootDir": "./app",
+  "modulePaths": ["app/"],
+  "resetMocks": true,
+  "globals": {
+    "PRODUCTION": false,
+    "BROSWER": true
+  }
+}
