@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ListItem from '../ListItem';
-import styles from './style.scss';
+import styles from './styles.scss';
 
 
 function ItemsList(props) {

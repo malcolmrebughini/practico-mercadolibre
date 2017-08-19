@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import freeShipping from './assets/ic_shipping.png';
-import styles from './style.scss';
+import styles from './styles.scss';
 
 
 function ListItem(props) {

@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem should render correctly 1`] = `
+<li
+  className="item"
+>
+  <Link
+    replace={false}
+    title="Some title"
+    to={
+      Object {
+        "pathname": "/items/undefined",
+      }
+    }
+  >
+    <div
+      className="thumbnail"
+    >
+      <img
+        alt="Some title"
+        src="http://someurl.com/someimage.jpg"
+      />
+    </div>
+    <div
+      className="description"
+    >
+      <span
+        className="price"
+      >
+        $ 
+        200
+        <img
+          alt="envio gratis"
+          className="freeShipping"
+          src="some-static-file"
+        />
+      </span>
+      <span
+        className="title"
+      >
+        Some title
+      </span>
+    </div>
+    <div
+      className="location"
+    >
+      San Nicolas
+    </div>
+  </Link>
+</li>
+`;

@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopBar should render correctly 1`] = `
+<div
+  className="topBar"
+>
+  <div
+    className="container"
+  >
+    <Link
+      className="logo"
+      replace={false}
+      to={
+        Object {
+          "pathname": "/",
+        }
+      }
+    >
+      <img
+        alt="mercadolibre"
+        src="some-static-file"
+      />
+    </Link>
+    <div
+      className="search"
+    >
+      <form
+        action="/items"
+        method="GET"
+        onSubmit={[Function]}
+      >
+        <input
+          className="searchInput"
+          name="q"
+          onChange={[Function]}
+          value="Mala fama"
+        />
+        <button
+          className="searchButton"
+          type="submit"
+        />
+      </form>
+    </div>
+  </div>
+</div>
+`;

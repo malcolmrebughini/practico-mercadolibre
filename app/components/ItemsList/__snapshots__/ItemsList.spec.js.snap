@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ItemsList should render correctly 1`] = `
+<ol
+  className="itemsList"
+>
+  <ListItem
+    id="1"
+  />
+  <ListItem
+    id="2"
+  />
+</ol>
+`;
