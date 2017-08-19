@@ -28,13 +28,13 @@ class SearchResultsPage extends React.Component {
 
     return (
       <div>
-        <Helmet>
-          <title>{q} en MercadoLibre</title>
-          <meta name="description" content={description} />
-        </Helmet>
         <TopBar />
         { !this.props.isLoading &&
           <div>
+            <Helmet>
+              <title>{q} en MercadoLibre</title>
+              <meta name="description" content={description} />
+            </Helmet>
             <Breadcrumbs />
             <ItemsList />
           </div>

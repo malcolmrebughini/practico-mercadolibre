@@ -26,13 +26,13 @@ class ItemDetailPage extends React.Component {
 
     return (
       <div>
-        <Helmet>
-          <title>{`${this.props.data.title} - $ ${price} en MercadoLibre`}</title>
-          <meta name="description" content={description} />
-        </Helmet>
         <TopBar />
         { !this.props.isLoading &&
           <div>
+            <Helmet>
+              <title>{`${this.props.data.title} - $ ${price} en MercadoLibre`}</title>
+              <meta name="description" content={description} />
+            </Helmet>
             <Breadcrumbs />
             <ItemDetail />
           </div>
