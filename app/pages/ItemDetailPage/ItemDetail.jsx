@@ -21,7 +21,8 @@ class ItemDetailPage extends React.Component {
       return `${string} ${value},`;
     }, '');
     const price = this.props.data.price &&
-      (this.props.data.price.integer + (this.props.data.price.decimals / 100));
+      (this.props.data.price.integer + (this.props.data.price.decimals / 100))
+        .toLocaleString('es-AR');
     const description =
       `Cómpralo en Mercado Libre a $ ${price} - Encuentra más productos de ${categories}`;
 

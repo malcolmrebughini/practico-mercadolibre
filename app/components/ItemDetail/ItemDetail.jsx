@@ -19,8 +19,11 @@ function ItemDetail(props) {
             </div>
             <h1 className={styles.title}>{ data.title }</h1>
             <div className={styles.price}>
-              $ {data.price.integer}
-              <span className={styles.priceDecimals}>{data.price.decimals}</span>
+              $ {data.price.integer.toLocaleString('es-AR')}
+              { data.price.decimals ?
+                <span className={styles.priceDecimals}>{data.price.decimals}</span>
+                : null
+              }
             </div>
             <button className={styles.buyButton}>Comprar</button>
           </div>
