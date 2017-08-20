@@ -6,7 +6,7 @@
   "author": "Malcolm Rebughini",
   "license": "MIT",
   "scripts": {
-    "test": "jest --config ./jest.config.json",
+    "test": "jest --coverage --config ./jest.config.json",
     "test:watch": "npm run test -- --watch",
     "serve": "NODE_ENV=development nodemon server/index.js",
     "serve:prod": "npm run build && NODE_ENV=production nodemon server/index.js",

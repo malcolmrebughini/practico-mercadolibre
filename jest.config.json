@@ -11,5 +11,8 @@
   "globals": {
     "PRODUCTION": false,
     "BROSWER": true
-  }
+  },
+  "coverageReporters": ["lcov"],
+  "coverageDirectory": "../coverage",
+  "coveragePathIgnorePatterns": ["/node_modules"]
 }
