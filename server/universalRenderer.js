@@ -45,7 +45,6 @@ function universalRendering(req, res) {
 
     const scripts = deferredScriptTags(
       normalizedAssets
-        .reverse()
         .filter(path => path && path.endsWith('.js'))
     )
 

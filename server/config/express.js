@@ -25,7 +25,7 @@ module.exports = app => {
     const staticPath = config.webpackConfig.output.path;
     const statsPath = path.join(staticPath, 'stats.json');
     const assetsByChunkName = require(statsPath).assetsByChunkName;
-    const normalizedAssets = assetsUtils.normalizeAssets(assetsByChunkName);
+    const normalizedAssets = assetsUtils.normalizeAssets(assetsByChunkName).reverse();
 
     app.use((req, res, next) => {
       res.locals.normalizedAssets = normalizedAssets;
@@ -43,7 +43,7 @@ module.exports = app => {
       hash: true,
       timings: true,
       chunks: false,
-    }
+    },
   }));
 
   app.use(webpackHotMiddleware(compiler, {
