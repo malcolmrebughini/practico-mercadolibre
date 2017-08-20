@@ -50,18 +50,9 @@ const commonConfig = {
     new CopyWebpackPlugin([
       { context: './app/assets', from: '**/*', to: 'assets' },
     ]),
-    // new FaviconsWebpackPlugin('./src/images/favicon.png'),
     new DefinePlugin({
       APP_VERSION: JSON.stringify(require('../package.json').version),
     }),
-    // new LoaderOptionsPlugin({
-    //   options: {
-    //     context: '/',
-    //     sassLoader : {
-    //       includePaths: [path.resolve(__dirname, "../src/styles")],
-    //     },
-    //   }
-    // }),
   ],
 };
 

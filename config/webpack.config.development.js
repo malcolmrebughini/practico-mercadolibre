@@ -57,6 +57,14 @@ config.module.rules = config.module.rules.concat([
         }
       },
       {
+        loader: 'postcss-loader',
+        options: {
+          config: {
+            path: path.join(__dirname, './postcss.config.js'),
+          },
+        },
+      },
+      {
         loader: 'sass-loader',
         options: {
           includePaths: [path.resolve(__dirname, "../app/styles")],
