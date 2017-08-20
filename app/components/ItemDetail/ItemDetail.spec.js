@@ -14,7 +14,10 @@ describe('ItemDetail', () => {
       condition: 'new',
       sold_quantity: 245,
       title: 'This is some title',
-      price: 10000,
+      price: {
+        integer: 10000,
+        decimals: 99,
+      },
       description: { plain_text: 'This is some description' },
     };
 
