@@ -1,3 +1,4 @@
+require('babel-polyfill');
 const mercadolibre = require('../../services/mercadolibre');
 
 
@@ -9,56 +10,35 @@ function getCategoryId(availableFilters) {
     .id;
 }
 
-module.exports.list = (req, res, next) => {
-  return mercadolibre.search(req.query.q)
-    .then(data => {
-      const filtersCategories = data.filters.find(f => f.id === 'category');
-      // If search didn't matched with a category already, get it my dude.
-      if (!filtersCategories) {
-        const categoryId = getCategoryId(data.available_filters);
+module.exports.list = function* (req, res) {
+  const searchResults = yield mercadolibre.search(req.query.q);
+  const filtersCategories = searchResults.filters.find(f => f.id === 'category');
+  const category = filtersCategories ?
+    filtersCategories.values[0] :
+    // If search didn't matched with a category already, get it my dude.
+    yield mercadolibre.getCategory(
+      getCategoryId(searchResults.available_filters)
+    );
 
-        return Promise.all([
-          data.results,
-          mercadolibre.getCategory(categoryId),
-        ]);
-      }
+  const response = {
+    items: searchResults.results,
+    categories: category.path_from_root.map(p => p.name),
+  };
 
-      return Promise.all([
-        data.results,
-        filtersCategories.values[0]
-      ]);
-    })
-    .then(([items, category]) => {
-      const response = {
-        items,
-        categories: category.path_from_root.map(p => p.name),
-      };
-
-      return res.json(response);
-    })
-    .catch(next);
+  return res.json(response);
 };
 
-module.exports.item = (req, res, next) => {
+module.exports.item = function* (req, res) {
   const { itemId } = req.params;
 
-  return Promise.all([
-    mercadolibre.getItem(itemId),
-    mercadolibre.getItemDescription(itemId),
-  ])
-    .then(([item, description]) => {
-      return Promise.all([
-        item,
-        description,
-        mercadolibre.getCategory(item.category_id),
-      ]);
-    })
-    .then(([item, description, category]) => {
-      const response = {
-        categories: category.path_from_root.map(p => p.name),
-        item: Object.assign(item, { description }),
-      };
-      return res.json(response);
-    })
-    .catch(next);
+  const item = yield mercadolibre.getItem(itemId);
+  const description = yield mercadolibre.getItemDescription(itemId);
+  const category = yield mercadolibre.getCategory(item.category_id);
+
+  const response = {
+    categories: category.path_from_root.map(p => p.name),
+    item: Object.assign(item, { description }),
+  }
+
+  return res.json(response);
 };

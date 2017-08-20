@@ -1,4 +1,5 @@
 const express = require('express');
+require('express-yields');
 const sass = require('node-sass');
 const config = require('./config/environment');
 const errorHandlingMiddleware = require('./utils/error-handling');
