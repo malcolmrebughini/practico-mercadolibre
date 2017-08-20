@@ -47,7 +47,8 @@
 
 
 #### Pending
-- [ ] Code splitting
 - [X] Unit tests
-- [ ] Run with Docker
+- [X] Run with Docker
 - [ ] Fix HMR
+- [ ] Refactor ItemsList component
+- [ ] Refactor TopBar component
