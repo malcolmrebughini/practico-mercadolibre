@@ -18,7 +18,10 @@ function ItemDetail(props) {
               {data.condition} - {data.sold_quantity} vendidos
             </div>
             <h1 className={styles.title}>{ data.title }</h1>
-            <div className={styles.price}>$ {data.price}</div>
+            <div className={styles.price}>
+              $ {data.price.integer}
+              <span className={styles.priceDecimals}>{data.price.decimals}</span>
+            </div>
             <button className={styles.buyButton}>Comprar</button>
           </div>
         </div>
@@ -40,7 +43,10 @@ function ItemDetail(props) {
 ItemDetail.propTypes = {
   data: PropTypes.shape({
     pictures: PropTypes.array,
-    price: PropTypes.number,
+    price: PropTypes.shape({
+      integer: PropTypes.number,
+      decimals: PropTypes.number,
+    }),
     description: PropTypes.shape({ plain_text: PropTypes.string }),
     condition: PropTypes.string,
     sold_quantity: PropTypes.number,

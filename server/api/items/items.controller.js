@@ -35,9 +35,14 @@ module.exports.item = function* (req, res) {
   const description = yield mercadolibre.getItemDescription(itemId);
   const category = yield mercadolibre.getCategory(item.category_id);
 
+  const price = {
+    integer: Math.trunc(item.price),
+    decimals: Math.trunc((item.price % 1) * 100),
+  };
+
   const response = {
     categories: category.path_from_root.map(p => p.name),
-    item: Object.assign(item, { description }),
+    item: Object.assign(item, { description, price }),
   }
 
   return res.json(response);

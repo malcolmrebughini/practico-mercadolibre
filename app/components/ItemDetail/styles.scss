@@ -56,6 +56,12 @@
   .price {
     font-size: 46px;
     margin: 32px 0;
+
+    .priceDecimals {
+      font-size: 23px;
+      vertical-align: top;
+      line-height: 1.5;
+    }
   }
 
   .buyButton {

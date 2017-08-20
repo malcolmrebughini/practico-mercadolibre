@@ -20,7 +20,7 @@ class ItemDetailPage extends React.Component {
       if (array.length === index + 1) return `${string} ${value}.`;
       return `${string} ${value},`;
     }, '');
-    const price = this.props.data.price;
+    const price = this.props.data.price.integer + (this.props.data.price.decimals / 100);
     const description =
       `Cómpralo en Mercado Libre a $ ${price} - Encuentra más productos de ${categories}`;
 
@@ -45,7 +45,10 @@ class ItemDetailPage extends React.Component {
 
 ItemDetailPage.propTypes = {
   data: PropTypes.shape({
-    price: PropTypes.number,
+    price: PropTypes.shape({
+      integer: PropTypes.number,
+      decimals: PropTypes.number,
+    }),
     title: PropTypes.string,
   }),
   itemId: PropTypes.string,

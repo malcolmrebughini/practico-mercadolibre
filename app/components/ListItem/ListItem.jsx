@@ -18,7 +18,7 @@ function ListItem(props) {
         </div>
         <div className={styles.description}>
           <span className={styles.price}>
-            $ {props.price}
+            $ {Math.round(props.price).toLocaleString('es-AR')}
             {
               props.freeShipping &&
                 <img alt="envio gratis" className={styles.freeShipping} src={freeShipping} />
