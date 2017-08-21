@@ -11,10 +11,10 @@ function ListItem(props) {
   };
 
   return (
-    <li className={styles.item}>
+    <li className={styles.item} itemScope itemType="http://schema.org/Product">
       <Link title={props.title} to={linkTo}>
         <div className={styles.thumbnail}>
-          <img src={props.thumbnail} alt={props.title} />
+          <img src={props.thumbnail} alt={props.title} itemProp="image"/>
         </div>
         <div className={styles.description}>
           <span className={styles.price}>
@@ -24,7 +24,7 @@ function ListItem(props) {
                 <img alt="envio gratis" className={styles.freeShipping} src={freeShipping} />
             }
           </span>
-          <span className={styles.title}>{props.title}</span>
+          <span className={styles.title} itemProp="name">{props.title}</span>
         </div>
         <div className={styles.location}>
           {props.location}

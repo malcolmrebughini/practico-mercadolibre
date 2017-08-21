@@ -18,7 +18,7 @@ function ItemDetail(props) {
               {data.condition} - {data.sold_quantity} vendidos
             </div>
             <h1 className={styles.title} itemProp="name">{ data.title }</h1>
-            <div className={styles.price} itemProp="price">
+            <div className={styles.price}>
               $ {data.price.integer.toLocaleString('es-AR')}
               { data.price.decimals ?
                 <span className={styles.priceDecimals}>{data.price.decimals}</span>
