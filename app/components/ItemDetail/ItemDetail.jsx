@@ -7,7 +7,7 @@ function ItemDetail(props) {
   const { data } = props;
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} itemScope itemType="http://schema.org/Product">
       <div className={styles.someContainer}>
         <div className={styles.innerContainer}>
           <div className={styles.pic}>
@@ -17,8 +17,8 @@ function ItemDetail(props) {
             <div className={styles.condition}>
               {data.condition} - {data.sold_quantity} vendidos
             </div>
-            <h1 className={styles.title}>{ data.title }</h1>
-            <div className={styles.price}>
+            <h1 className={styles.title} itemProp="name">{ data.title }</h1>
+            <div className={styles.price} itemProp="price">
               $ {data.price.integer.toLocaleString('es-AR')}
               { data.price.decimals ?
                 <span className={styles.priceDecimals}>{data.price.decimals}</span>
@@ -28,10 +28,11 @@ function ItemDetail(props) {
             <button className={styles.buyButton}>Comprar</button>
           </div>
         </div>
-        <div className={styles.infoContainer2}>
+        <div className={styles.descriptionContainer}>
           <h2 className={styles.descriptionTitle}>Descripción del producto</h2>
           <p
             className={styles.description}
+            itemProp="description"
             dangerouslySetInnerHTML={
               { __html: data.description.text || data.description.plain_text }
             }
