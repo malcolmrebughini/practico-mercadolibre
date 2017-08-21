@@ -39,7 +39,6 @@ exports[`ItemDetail should render correctly 1`] = `
         </h1>
         <div
           className="price"
-          itemProp="price"
         >
           $ 
           10,000

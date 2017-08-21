@@ -3,6 +3,8 @@
 exports[`ListItem should render correctly 1`] = `
 <li
   className="item"
+  itemScope={true}
+  itemType="http://schema.org/Product"
 >
   <Link
     replace={false}
@@ -18,6 +20,7 @@ exports[`ListItem should render correctly 1`] = `
     >
       <img
         alt="Some title"
+        itemProp="image"
         src="http://someurl.com/someimage.jpg"
       />
     </div>
@@ -37,6 +40,7 @@ exports[`ListItem should render correctly 1`] = `
       </span>
       <span
         className="title"
+        itemProp="name"
       >
         Some title
       </span>
