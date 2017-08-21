@@ -14,7 +14,7 @@ function ListItem(props) {
     <li className={styles.item} itemScope itemType="http://schema.org/Product">
       <Link title={props.title} to={linkTo}>
         <div className={styles.thumbnail}>
-          <img src={props.thumbnail} alt={props.title} itemProp="image"/>
+          <img src={props.thumbnail} alt={props.title} itemProp="image" />
         </div>
         <div className={styles.description}>
           <span className={styles.price}>
