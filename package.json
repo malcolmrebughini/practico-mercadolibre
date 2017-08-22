@@ -20,6 +20,7 @@
     "express": "^4.15.3",
     "express-yields": "^1.1.0",
     "history": "^4.6.3",
+    "intl": "^1.2.5",
     "morgan": "^1.8.2",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",

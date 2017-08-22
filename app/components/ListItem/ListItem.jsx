@@ -6,6 +6,7 @@ import styles from './styles.scss';
 
 
 function ListItem(props) {
+  const numberFormatter = new Intl.NumberFormat('es-AR');
   const linkTo = {
     pathname: `/items/${props.id}`,
   };
@@ -18,7 +19,7 @@ function ListItem(props) {
         </div>
         <div className={styles.description}>
           <span className={styles.price}>
-            $ {Math.round(props.price).toLocaleString('es-AR')}
+            $ {numberFormatter.format(Math.round(props.price))}
             {
               props.freeShipping &&
                 <img alt="envio gratis" className={styles.freeShipping} src={freeShipping} />

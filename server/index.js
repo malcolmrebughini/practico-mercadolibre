@@ -1,5 +1,8 @@
 const express = require('express');
 require('express-yields');
+// Replacing Intl NumberFormat to avoid having to compile node with locales
+// If we don't do this, server side rendered formatted numbers differ with client
+Intl.NumberFormat = require('intl').NumberFormat;
 const sass = require('node-sass');
 const config = require('./config/environment');
 const errorHandlingMiddleware = require('./utils/error-handling');

@@ -31,8 +31,12 @@ module.exports.list = function* (req, res) {
 module.exports.item = function* (req, res) {
   const { itemId } = req.params;
 
-  const item = yield mercadolibre.getItem(itemId);
-  const description = yield mercadolibre.getItemDescription(itemId);
+  const results = yield Promise.all([
+    mercadolibre.getItem(itemId),
+    mercadolibre.getItemDescription(itemId)
+  ]);
+  const item = results[0];
+  const description = results[1];
   const category = yield mercadolibre.getCategory(item.category_id);
 
   const price = {

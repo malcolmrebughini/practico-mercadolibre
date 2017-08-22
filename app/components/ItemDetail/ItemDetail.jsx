@@ -4,6 +4,7 @@ import styles from './styles.scss';
 
 
 function ItemDetail(props) {
+  const numberFormatter = new Intl.NumberFormat('es-AR');
   const { data } = props;
 
   return (
@@ -19,7 +20,7 @@ function ItemDetail(props) {
             </div>
             <h1 className={styles.title} itemProp="name">{ data.title }</h1>
             <div className={styles.price}>
-              $ {data.price.integer.toLocaleString('es-AR')}
+              $ {numberFormatter.format(data.price.integer)}
               { data.price.decimals ?
                 <span className={styles.priceDecimals}>{data.price.decimals}</span>
                 : null
