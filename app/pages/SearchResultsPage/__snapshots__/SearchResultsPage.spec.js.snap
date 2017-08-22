@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchResultsPage should render correctly 1`] = `
+<div>
+  <Connect(TopBar) />
+  <div>
+    <HelmetWrapper
+      encodeSpecialCharacters={true}
+    >
+      <title>
+        Mala Fama
+         en MercadoLibre
+      </title>
+      <meta
+        content="Encontrá Mala Fama en Mercado Libre. Descubrí la mejor forma de comprar online."
+        name="description"
+      />
+    </HelmetWrapper>
+    <Connect(Breadcrumbs) />
+    <Connect(ItemsList) />
+  </div>
+</div>
+`;
