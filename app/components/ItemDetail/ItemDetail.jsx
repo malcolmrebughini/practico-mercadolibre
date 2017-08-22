@@ -14,13 +14,14 @@ function ItemDetail(props) {
           <div className={styles.pic}>
             <img src={data.pictures[0].url} alt={data.title} />
           </div>
-          <div className={styles.infoContainer}>
+          <div className={styles.infoContainer} itemScope itemType="http://schema.org/Offer">
             <div className={styles.condition}>
               {data.condition} - {data.sold_quantity} vendidos
             </div>
             <h1 className={styles.title} itemProp="name">{ data.title }</h1>
             <div className={styles.price}>
-              $ {numberFormatter.format(data.price.integer)}
+              <span itemProp="priceCurrency" content={data.currency_id}>$ </span>
+              <span itemProp="price">{numberFormatter.format(data.price.integer)}</span>
               { data.price.decimals ?
                 <span className={styles.priceDecimals}>{data.price.decimals}</span>
                 : null

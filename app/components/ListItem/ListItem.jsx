@@ -18,8 +18,9 @@ function ListItem(props) {
           <img src={props.thumbnail} alt={props.title} itemProp="image" />
         </div>
         <div className={styles.description}>
-          <span className={styles.price}>
-            $ {numberFormatter.format(Math.round(props.price))}
+          <span className={styles.price} itemScope itemType="http://schema.org/Offer">
+            <span itemProp="priceCurrency" content={props.currencyId}>$ </span>
+            <span itemProp="price">{numberFormatter.format(Math.round(props.price))}</span>
             {
               props.freeShipping &&
                 <img alt="envio gratis" className={styles.freeShipping} src={freeShipping} />
@@ -43,6 +44,7 @@ ListItem.propTypes = {
   price: PropTypes.number,
   location: PropTypes.string,
   freeShipping: PropTypes.bool,
+  currencyId: PropTypes.string,
 };
 
 

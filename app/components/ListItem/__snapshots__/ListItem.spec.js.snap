@@ -29,9 +29,19 @@ exports[`ListItem should render correctly 1`] = `
     >
       <span
         className="price"
+        itemScope={true}
+        itemType="http://schema.org/Offer"
       >
-        $ 
-        200
+        <span
+          itemProp="priceCurrency"
+        >
+          $ 
+        </span>
+        <span
+          itemProp="price"
+        >
+          200
+        </span>
         <img
           alt="envio gratis"
           className="freeShipping"

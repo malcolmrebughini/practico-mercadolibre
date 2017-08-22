@@ -12,6 +12,7 @@ function ItemsList(props) {
           key={item.id}
           id={item.id}
           title={item.title}
+          currencyId={item.currency_id}
           price={item.price}
           thumbnail={item.thumbnail}
           location={item.address.state_name}
