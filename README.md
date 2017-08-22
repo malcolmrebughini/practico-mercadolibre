@@ -28,6 +28,17 @@
     ```
     Use this to get the compiled app in the `www` dir
 
+### Docker
+
+- Building the image
+    ```
+    docker build -t <imageTag> .
+    ```
+
+- Running a container
+    ```
+    docker run -p <hostPort>:3000 <imageTag>
+    ```
 
 ### Code quality and stuff
 
