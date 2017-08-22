@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage should render correctly 1`] = `
+<div>
+  <HelmetWrapper
+    encodeSpecialCharacters={true}
+  >
+    <title>
+      MercadoLibre
+    </title>
+    <meta
+      content="La comunidad de compra y venta online más grande de América Latina."
+      name="description"
+    />
+  </HelmetWrapper>
+  <Connect(TopBar) />
+</div>
+`;
