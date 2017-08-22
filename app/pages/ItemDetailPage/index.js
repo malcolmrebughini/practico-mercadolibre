@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import actions from '../../actions';
-import ItemDetail from './ItemDetail';
+import ItemDetailPage from './ItemDetailPage';
 
 
 function mapStateToProps(state, ownProps) {
@@ -14,4 +14,4 @@ function mapStateToProps(state, ownProps) {
 }
 
 
-export default connect(mapStateToProps, actions)(ItemDetail);
+export default connect(mapStateToProps, actions)(ItemDetailPage);

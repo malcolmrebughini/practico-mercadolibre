@@ -16,13 +16,15 @@ class ItemDetailPage extends React.Component {
   }
 
   render = () => {
+    const numberFormatter = new Intl.NumberFormat('es-AR');
     const categories = this.props.categories.reduce((string, value, index, array) => {
       if (array.length === index + 1) return `${string} ${value}.`;
       return `${string} ${value},`;
-    }, '');
+    }, '').trim();
     const price = this.props.data.price &&
-      (this.props.data.price.integer + (this.props.data.price.decimals / 100))
-        .toLocaleString('es-AR');
+      numberFormatter.format(
+        this.props.data.price.integer + (this.props.data.price.decimals / 100),
+      );
     const description =
       `Cómpralo en Mercado Libre a $ ${price} - Encuentra más productos de ${categories}`;
 
@@ -62,6 +64,7 @@ ItemDetailPage.propTypes = {
 
 ItemDetailPage.defaultProps = {
   data: {},
+  categories: [],
 };
 
 

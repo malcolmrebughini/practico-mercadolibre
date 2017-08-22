@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import actions from '../../actions';
-import SearchResults from './SearchResults';
+import SearchResultsPage from './SearchResultsPage';
 
 
 function mapStateToProps(state, ownProps) {
@@ -12,4 +12,4 @@ function mapStateToProps(state, ownProps) {
 }
 
 
-export default connect(mapStateToProps, actions)(SearchResults);
+export default connect(mapStateToProps, actions)(SearchResultsPage);

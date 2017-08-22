@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ItemDetailPage should render correctly 1`] = `
+<div>
+  <Connect(TopBar) />
+  <div>
+    <HelmetWrapper
+      encodeSpecialCharacters={true}
+    >
+      <title>
+        Some title - $ 90,000 en MercadoLibre
+      </title>
+      <meta
+        content="Cómpralo en Mercado Libre a $ 90,000 - Encuentra más productos de Some, Categories."
+        name="description"
+      />
+    </HelmetWrapper>
+    <Connect(Breadcrumbs) />
+    <Connect(ItemDetail) />
+  </div>
+</div>
+`;
