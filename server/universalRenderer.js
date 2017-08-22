@@ -49,6 +49,7 @@ function universalRendering(req, res) {
     )
 
     return res.send(`
+      <!DOCTYPE html>
       <html>
         <head>
           ${helmet.title.toString()}
